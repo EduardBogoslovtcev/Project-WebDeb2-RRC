@@ -12,6 +12,12 @@
       <input type="email" name="email" placeholder="Email" required />
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit" name="login">Login</button>
+      
+      <div class="stay-logged-in">
+        <input type="checkbox" name="logged_in" id="logged-in">
+        <label for="logged-in" >Stay logged in</label>
+      </div>
+
       <p>Don't have an account yet? <a href="#" onclick="showForm('register_form')">Register</a></p>
     </form>
 
@@ -22,6 +28,7 @@
       <input type="password" name="password" placeholder="Password" required />
       <input type="password" name="password" placeholder="Repeat password" required />
       <button type="submit" name="Register">Register</button>
+
       <p>Already have an account? <a href="#" onclick="showForm('login_form')">Login</a></p>
     </form>
 

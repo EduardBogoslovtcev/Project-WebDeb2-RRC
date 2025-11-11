@@ -73,3 +73,15 @@ form a {
 form a:hover {
     text-decoration: underline;
 }
+
+.stay-logged-in {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.stay-logged-in input {
+    width: 10%;
+    display: flex;
+}
