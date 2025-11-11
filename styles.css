@@ -1,79 +1,63 @@
-/* Overall page layout */
 body {
-    background-color: #1e293b; /* dark greyish blue */
+    background-color: #1e293b;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     margin: 0;
 
-    /* center the form */
     display: flex;
     justify-content: center;
     align-items: center;
     color: #f1f5f9;
 }
 
-/* Form box */
-form {
-    width: 320px;
+.form-box {
+    width: 340px;
     padding: 2rem;
     border-radius: 14px;
-    background-color: #243141; /* slightly lighter than body */
+    background-color: #243141;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
     text-align: center;
-    display: flex;
     flex-direction: column;
     align-items: center;
+    display: none;
 }
 
-/* Heading */
-form h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    font-weight: 600;
+.form-box.active {
+    display: flex;
 }
 
-/* Inputs */
-form input {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #475569;
-    color: #f1f5f9;
-    font-size: 1rem;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-
-form input::placeholder {
-    color: #cbd5e1;
-}
-
-form input:focus {
-    background-color: #64748b;
-}
-
-/* Gradient button */
+form input,
 form button {
     width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
     padding: 0.75rem;
-    background: linear-gradient(90deg, #22c55e, #16a34a);
-    color: white;
+    margin-bottom: 1rem;
+    border-radius: 8px;
     border: none;
-    border-radius: 0.5rem;
     font-size: 1rem;
+}
+
+form input {
+    background: #394956;
+    color: #e6eef6;
+    outline: none;
+}
+form input::placeholder {
+    color: #9aa6b3;
+}
+
+form button {
+    background: linear-gradient(90deg, #22c55e, #059669);
+    color: #fff;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
 }
-
 form button:hover {
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
-/* Bottom text */
 form p {
     margin-top: 1rem;
     font-size: 0.9rem;
