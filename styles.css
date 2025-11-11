@@ -1,0 +1,91 @@
+/* Overall page layout */
+body {
+    background-color: #1e293b; /* dark greyish blue */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+
+    /* center the form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f1f5f9;
+}
+
+/* Form box */
+form {
+    width: 320px;
+    padding: 2rem;
+    border-radius: 14px;
+    background-color: #243141; /* slightly lighter than body */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+form h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Inputs */
+form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #475569;
+    color: #f1f5f9;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+form input::placeholder {
+    color: #cbd5e1;
+}
+
+form input:focus {
+    background-color: #64748b;
+}
+
+/* Gradient button */
+form button {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+form button:hover {
+    opacity: 0.9;
+}
+
+/* Bottom text */
+form p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+form a {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
