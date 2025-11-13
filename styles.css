@@ -19,7 +19,6 @@ body {
     text-align: center;
     flex-direction: column;
     align-items: center;
-    display: none;
 }
 
 .form-box.active {
@@ -36,6 +35,7 @@ form button {
     border-radius: 8px;
     border: none;
     font-size: 1rem;
+    transition: box-shadow 0.55s ease, background-color 0.55s ease;
 }
 
 form input {
@@ -43,8 +43,44 @@ form input {
     color: #e6eef6;
     outline: none;
 }
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #22c55e;
+    transition: opacity 0.2s ease;
+}
+
 form input::placeholder {
     color: #9aa6b3;
+}
+
+.password-hint {
+    color: #9aa6b3;
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    max-width: 300px;
+}
+
+.error-text {
+    font-size: 0.8rem;
+    color: #f87171;
+    text-align: left;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+    height: 1rem; /* reserves space to avoid layout shift */
+}
+.success-banner {
+    background: #16a34a;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    width: 100%;
+    max-width: 340px;
 }
 
 form button {
@@ -83,5 +119,4 @@ form a:hover {
 
 .stay-logged-in input {
     width: 10%;
-    display: flex;
 }
