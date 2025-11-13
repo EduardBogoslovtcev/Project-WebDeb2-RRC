@@ -6,24 +6,22 @@ $errors = [
   'username' => '',
   'email' => '',
   'password' => '',
-  'password_repeat' => ''
+  'password_repeat' => '', 
+  'role' => ''
 ];
 $success_message = '';
 
 // default form shown
-if (!isset($_SESSION['active_form'])) {
-    $_SESSION['active_form'] = 'login';
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["register"])) {
-
-  $_SESSION['active_form'] = 'register';
 
   // sanitize inputs
   $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
   $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
   $password = $_POST['password']; 
   $password_repeat = $_POST['password_repeat'];
+  $role = $_POST['role'];
+
   // --- Validation ---
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $errors['email'] = 'Enter a valid email address.';
@@ -49,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["register"])) {
   // if no errors, insert
   if (!array_filter($errors)) {
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-      $role = 'user';
       $insert_user = $db->prepare("INSERT INTO users_cms (username, email, password, role)
                                      VALUES (:username, :email, :password, :role)");
       $insert_user->execute([
@@ -81,20 +78,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["register"])) {
       <h2>Register</h2>
       
       <input type="text" name="username" placeholder="Username" value="<?php echo isset($username) ? htmlspecialchars($username) : ''; ?>" required />
-      <div class="error-text"><?php echo $errors['username']; ?></div>
 
       <input type="email" name="email" placeholder="Email"  value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>" required />
-      <div class="error-text"><?php echo $errors['email']; ?></div>
 
       <input type="password" name="password" placeholder="Password"  value="<?php echo isset($password) ? htmlspecialchars($password) : ''; ?>" required />
-      <div class="error-text"><?php echo $errors['password']; ?></div>
       
       <small class="password-hint">
         Password must be at least 15 characters long, include one uppercase letter, and one number.
       </small>
       
       <input type="password" name="password_repeat" placeholder="Repeat password" value="<?php echo isset($password_repeat) ? htmlspecialchars($password_repeat) : ''; ?>" required />
-      <div class="error-text"><?php echo $errors['password_repeat']; ?></div>
+
+      <select name="role" id="role" required>
+        <option value="">--Select Role--</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
 
       <button type="submit" name="register">Register</button>
 
